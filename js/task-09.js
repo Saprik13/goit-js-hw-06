@@ -1,18 +1,19 @@
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, 0)}`;
+}
 
 const refs = {
-  bgChangerBtn: document.querySelector(".change-color"),
-  bgColor: document.querySelector(".color"),
-  body: document.querySelector("body")
-}
-refs.bgChangerBtn.addEventListener("click",changeColor);
+  bgChangerBtn: document.querySelector('.change-color'),
+  bgColor: document.querySelector('.color'),
+  body: document.querySelector('body'),
+};
 
-
-const getRandomHexColor = () => {
- return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-}
-
+refs.bgChangerBtn.addEventListener('click', changeColor);
 
 function changeColor() {
-refs.body.style.backgroundColor = getRandomHexColor();
-refs.bgColor.textContent = getRandomHexColor();
+  const color = getRandomHexColor();
+  refs.bgColor.textContent = color;
+  refs.body.style.backgroundColor = color;
 }
